@@ -22,4 +22,15 @@ public class FileImporter {
 		return this.list.get(randomIndex);
 	}
 	
+	public String Losowanie(int wordLength) {
+		ArrayList<String> newList = new ArrayList<>();
+		
+		for (int i=0;i<list.size();i++) {
+			if (list.get(i).length()==wordLength) {
+				newList.add(list.get(i));
+			}
+		}
+		int randomIndex = (int) (Math.random() * newList.size());
+		return newList.get(randomIndex);
+	}
 }
