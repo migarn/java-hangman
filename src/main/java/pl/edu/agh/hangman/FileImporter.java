@@ -6,18 +6,17 @@ import java.util.List;
 import java.util.Scanner;
 
 public class FileImporter {
-	File file = new File("C:\\Users\\student22\\Desktop\\Hangman\\java-hangman\\src\\main\\resources");
+	File file = new File("C:\\Users\\student13\\Desktop\\hangman\\java-hangman\\src\\main\\java\\pl\\edu\\agh\\hangman\\slowa.txt");
 	ArrayList<String> list = new ArrayList<>();
-
-	public List<String> Convert() throws FileNotFoundException { 
-		Scanner scan;
-		scan = new Scanner(new BufferedReader(new FileReader(file)));
-		list.add(scan.nextLine());
-		scan.close();
-		return list;
-	}
 	
-	public String Losowanie() {
+	public String Losowanie() throws FileNotFoundException {
+		Scanner scan;
+		scan = new Scanner(new FileReader(file));
+		while (scan.hasNext()) {
+			this.list.add(scan.nextLine());
+		}
+		scan.close();
+		
 		int randomIndex = (int) (Math.random() * this.list.size());
 		return this.list.get(randomIndex);
 	}
